@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+    "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
     "prettier": "prettier --write ."
   },
   "dependencies": {
@@ -15,8 +15,9 @@
     "element-plus": "^2.2.32",
     "eslint": "^8.0.1",
     "vite-plugin-eslint": "^1.8.1",
-    "vue": "^3.2.45",
-    "vue-router": "4"
+    "vue": "^3.2.25",
+    "vue-router": "4",
+    "vuedraggable": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.16",

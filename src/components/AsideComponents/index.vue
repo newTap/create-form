@@ -1,30 +1,37 @@
 <template>
   <el-aside width="250px">
     <div class="components">
-      <template v-for="category in componentsList" :key="category.name">
+      <template v-for="category in data" :key="category.name">
         <p class="category-name">
           {{ category.name }}
         </p>
-        <ul>
-          <li
-            v-for="item in category.list"
-            :key="item.name"
-            class="components-tag"
-          >
-            <div class="">
-              {{ item.name }}
+        <Draggable
+          :list="category.list"
+          :group="{ name: category.name }"
+          :sort="false"
+          item-key="name"
+        >
+          <template #item="{ element }">
+            <div class="components-tag">
+              <div class="">
+                {{ element.name }}
+              </div>
             </div>
-          </li>
-        </ul>
+          </template>
+        </Draggable>
       </template>
     </div>
   </el-aside>
 </template>
 <script lang="ts" setup>
-import { componentsList } from "@/config";
+import { reactive, defineComponent } from "vue";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Draggable from "vuedraggable";
 </script>
+
 <script lang="ts">
-import { defineComponent } from "vue";
+import { componentsList } from "@/config";
+const data = reactive(componentsList);
 
 export default defineComponent({
   name: "asideComponents",
